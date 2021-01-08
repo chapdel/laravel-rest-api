@@ -1,5 +1,5 @@
 {
-    "name": "chapdel/laraval-api-rest",
+    "name": "chapdel/laraval-rest-api",
     "type": "project",
     "description": "The Laravel API Rest Starter.",
     "homepage": "https://github.com/chapdel/laravel-api-rest",
@@ -28,7 +28,8 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "laravel/ui": "^3.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
