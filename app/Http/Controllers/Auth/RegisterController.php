@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -25,12 +26,6 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -54,7 +49,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => [Rule::requiredIf(!isset($data['phone'])), 'email', 'max:255', 'unique:users'],
             'phone' => [Rule::requiredIf(!isset($data['email'])), 'phone:CM,AUTO'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
     }
 
@@ -74,5 +69,34 @@ class RegisterController extends Controller
         ]);
 
         return $user;
+    }
+
+    /**
+     * Get the post register / login redirect path.
+     *
+     * @return string
+     */
+    public function redirectPath()
+    {
+        return abort('authenticated');
+    }
+
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function registered(Request $request, User $user)
+    {
+
+
+        $user = auth()->user();
+        return response()->json([
+            'token' => (string) $user->createToken('api')->plainTextToken,
+            'user' => $user,
+            'token_type' => 'Bearer',
+        ]);
     }
 }
