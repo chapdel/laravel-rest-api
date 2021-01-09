@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Rules\UnBanned;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -47,8 +48,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => [Rule::requiredIf(!isset($data['phone'])), 'email', 'max:255', 'unique:users'],
-            'phone' => [Rule::requiredIf(!isset($data['email'])), 'phone:CM,AUTO'],
+            'email' => [Rule::requiredIf(!isset($data['phone'])), 'email', 'max:255', 'unique:users', new UnBanned('users')],
+            'phone' => [Rule::requiredIf(!isset($data['email'])), 'phone:CM,AUTO', 'unique:users', new UnBanned('users')],
             'password' => ['required', 'string', 'min:8'],
         ]);
     }
