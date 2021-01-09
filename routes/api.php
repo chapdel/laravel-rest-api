@@ -23,8 +23,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // auth
 Route::group(['middleware' => ['auth:sanctum'],], function () {
-    Route::put('user', [ProfileController::class, 'update']);
-    Route::put('user/password', [ProfileController::class, 'password']);
+    Route::post('user', [ProfileController::class, 'update']);
+    Route::post('user/password', [ProfileController::class, 'password']);
 });
 
 // guest
