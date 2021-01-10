@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\VerificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,4 +37,6 @@ Route::group(['middleware' => ['auth:sanctum'],], function () {
 Route::group(['middleware' => ['guest:sanctum'],], function () {
     Route::post('login', [LoginController::class, 'login']);
     Route::post('register', [RegisterController::class, 'register']);
+    Route::post('password/request', [ForgotPasswordController::class, 'sendResetCode']);
+    Route::post('password/reset', [ResetPasswordController::class, 'reset']);
 });
