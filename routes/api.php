@@ -25,6 +25,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware' => ['auth:sanctum'],], function () {
     Route::post('user', [ProfileController::class, 'update']);
     Route::post('user/password', [ProfileController::class, 'password']);
+
+    Route::post('verify', [VerificationController::class, 'verify']);
+    Route::post('resend', [VerificationController::class, 'resend']);
 });
 
 // guest

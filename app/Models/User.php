@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Interfaces\MustVerifyAccount;
+use App\Traits\VerifyAccount;
 use Cog\Laravel\Ban\Traits\Bannable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,12 +12,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyAccount
 {
     use HasFactory, Notifiable;
     use SoftDeletes;
     use HasApiTokens;
     use Bannable;
+    use VerifyAccount;
 
     /**
      * The attributes that are mass assignable.
@@ -36,6 +39,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -43,6 +47,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'phone_verified_at' => 'datetime',
     ];
 
     /**
@@ -53,5 +58,21 @@ class User extends Authenticatable
     public function shouldApplyBannedAtScope()
     {
         return true;
+    }
+
+    public function verifications()
+    {
+        return $this->hasMany(UserVerification::class);
+    }
+
+    /**
+     * Route notifications for the Nexmo channel.
+     *
+     * @param  \Illuminate\Notifications\Notification  $notification
+     * @return string
+     */
+    public function routeNotificationForNexmo($notification)
+    {
+        return $this->phone;
     }
 }

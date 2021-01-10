@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Interfaces\MustVerifyAccount;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Rules\UnBanned;
@@ -92,6 +93,16 @@ class RegisterController extends Controller
     protected function registered(Request $request, User $user)
     {
 
+        if ($user instanceof MustVerifyAccount) {
+            $user->sendVerificationNotification();
+            $user = auth()->user();
+            return response()->json([
+                'token' => (string) $user->createToken('api')->plainTextToken,
+                'user' => $user,
+                'verified' => false,
+                'token_type' => 'Bearer',
+            ]);
+        }
 
         $user = auth()->user();
         return response()->json([
