@@ -18,7 +18,7 @@ class CountryTableSeed extends Seeder
         $countries = json_decode(file_get_contents(__DIR__ . '/data/countries/en.json'), true);
         $trs = json_decode(file_get_contents(__DIR__ . '/data/countries/fr.json'), true);
 
-        $fr = Language::find(2);
+        $fr = Language::whereIsoCode("fr")->first();
 
         foreach ($countries as $country) {
             $r = Country::create($country);

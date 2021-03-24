@@ -1,0 +1,210 @@
+[
+    {
+        "cat_key": "ART_AND_DESIGN",
+        "name": "Art et design"
+    },
+    {
+        "cat_key": "AUTO_AND_VEHICLES",
+        "name": "Auto et véhicles"
+    },
+    {
+        "cat_key": "AUTO_AND_VEHICLES",
+        "name": "Culture et tradition"
+    },
+    {
+        "cat_key": "BEAUTY",
+        "name": "Beauté"
+    },
+    {
+        "cat_key": "BOOKS_AND_REFERENCE",
+        "name": "Livres et référence"
+    },
+    {
+        "cat_key": "BUSINESS",
+        "name": "Productivité"
+    },
+    {
+        "cat_key": "COMICS",
+        "name": "BD"
+    },
+    {
+        "cat_key": "COMMUNICATION",
+        "name": "Communication"
+    },
+    {
+        "cat_key": "DATING",
+        "name": "Rencontre"
+    },
+    {
+        "cat_key": "EDUCATION",
+        "name": "Enseignement"
+    },
+    {
+        "cat_key": "ENTERTAINMENT",
+        "name": "Divertissement"
+    },
+    {
+        "cat_key": "EVENTS",
+        "name": "Événements"
+    },
+    {
+        "cat_key": "FINANCE",
+        "name": "Finance"
+    },
+    {
+        "cat_key": "FOOD_AND_DRINK",
+        "name": "Cuisine et boisson"
+    },
+    {
+        "cat_key": "HEALTH_AND_FITNESS",
+        "name": "Santé et remise en forme"
+    },
+    {
+        "cat_key": "HOUSE_AND_HOME",
+        "name": "Habitat et décoration"
+    },
+    {
+        "cat_key": "LIFESTYLE",
+        "name": "Style de vie"
+    },
+    {
+        "cat_key": "MAPS_AND_NAVIGATION",
+        "name": "Plans et navigation"
+    },
+    {
+        "cat_key": "MEDICAL",
+        "name": "Médecine"
+    },
+    {
+        "cat_key": "MUSIC_AND_AUDIO",
+        "name": "Musique et audio"
+    },
+    {
+        "cat_key": "NEWS_AND_MAGAZINES",
+        "name": "Actualités et magazines"
+    },
+    {
+        "cat_key": "PERSONALIZATION",
+        "name": "Personnalisation"
+    },
+    {
+        "cat_key": "PHOTOGRAPHY",
+        "name": "Photographie"
+    },
+    {
+        "cat_key": "PRODUCTIVITY",
+        "name": "Productivité"
+    },
+    {
+        "cat_key": "SHOPPING",
+        "name": "Achats et ventes"
+    },
+    {
+        "cat_key": "SOCIAL",
+        "name": "Sociale"
+    },
+    {
+        "cat_key": "SPORTS",
+        "name": "Sports"
+    },
+    {
+        "cat_key": "TOOLS",
+        "name": "Outils"
+    },
+    {
+        "cat_key": "TRAVEL_AND_LOCAL",
+        "name": "Voyage et infos local"
+    },
+    {
+        "cat_key": "VIDEO_PLAYERS",
+        "name": "Lecteurs et éditeurs vidéo"
+    },
+    {
+        "cat_key": "WEATHER",
+        "name": "Météo"
+    },
+    {
+        "cat_key": "LIBRARIES_AND_DEMO",
+        "name": "Bibliothèques et démo"
+    },
+    {
+        "cat_key": "GAME_ARCADE",
+        "type": "game",
+        "name": "Jeux d'arcade"
+    },
+    {
+        "cat_key": "GAME_PUZZLE",
+        "type": "game",
+        "name": "Jeux de réflexion"
+    },
+    {
+        "cat_key": "GAME_CARD",
+        "type": "game",
+        "name": "Jeux de cartes"
+    },
+    {
+        "cat_key": "GAME_CASUAL",
+        "type": "game",
+        "name": "Jeux société"
+    },
+    {
+        "cat_key": "GAME_RACING",
+        "type": "game",
+        "name": "Jeux de course"
+    },
+    {
+        "cat_key": "GAME_SPORTS",
+        "type": "game",
+        "name": "Jeux de sport"
+    },
+    {
+        "cat_key": "GAME_ACTION",
+        "type": "game",
+        "name": "Jeux d'action"
+    },
+    {
+        "cat_key": "GAME_ADVENTURE",
+        "type": "game",
+        "name": "Jeux d'aventure"
+    },
+    {
+        "cat_key": "GAME_CASINO",
+        "type": "game",
+        "name": "Jeux de casino"
+    },
+    {
+        "cat_key": "GAME_EDUCATIONAL",
+        "type": "game",
+        "name": "Jeux éducatif"
+    },
+    {
+        "cat_key": "GAME_MUSIC",
+        "type": "game",
+        "name": "Jeux de musique"
+    },
+    {
+        "cat_key": "GAME_ROLE_PLAYING",
+        "type": "game",
+        "name": "Jeux de rôle"
+    },
+    {
+        "cat_key": "GAME_SIMULATION",
+        "type": "game",
+        "name": "Jeux de simulation"
+    },
+    {
+        "cat_key": "GAME_STRATEGY",
+        "type": "game",
+        "name": "Jeux de stratégie"
+    },
+    {
+        "cat_key": "GAME_TRIVIA",
+        "type": "game",
+        "name": "Jeux d'anecdotes"
+    },
+    {
+        "cat_key": "GAME_WORD",
+        "type": "game",
+        "name": "Jeux de mots"
+    }
+]

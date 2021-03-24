@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -40,3 +41,6 @@ Route::group(['middleware' => ['guest:sanctum'],], function () {
     Route::post('password/request', [ForgotPasswordController::class, 'sendResetCode']);
     Route::post('password/reset', [ResetPasswordController::class, 'reset']);
 });
+
+
+Route::get("categories", [CategoryController::class, 'index']);

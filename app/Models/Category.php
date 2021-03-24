@@ -12,4 +12,14 @@ class Category extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function scopeApps($query)
+    {
+        return $query->whereType("app");
+    }
+
+    public function scopeGames($query)
+    {
+        return $query->whereType("game");
+    }
 }
