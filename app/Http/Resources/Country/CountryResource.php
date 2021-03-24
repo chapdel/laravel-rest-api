@@ -18,12 +18,23 @@ class CountryResource extends JsonResource
     {
         if (App::getLocale() != "en") {
             $translation = $this->translations()->whereLanguageId(Language::whereIsoCode(App::getLocale())->first()->id)->first();
-            return [
-                'id' => $this->id,
-                'name' => $translation->data->name,
-                'iso_code' => $this->iso_code,
-            ];
+
+            if ($translation)
+                return [
+                    'id' => $this->id,
+                    'name' => $translation->data->name,
+                    'iso_code' => $this->iso_code,
+                ];
+
+            else
+                return [
+                    'id' => $this->id,
+                    'name' => $this->name,
+                    'iso_code' => $this->iso_code,
+                ];
         }
+
+
 
 
         return [
