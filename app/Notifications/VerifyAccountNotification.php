@@ -44,7 +44,7 @@ class VerifyAccountNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        $verification = $notifiable->verificationCodes()->create([
+        $verification = $notifiable->verifications()->create([
             'code' => random_int(100000, 999999),
             'expire_in' => now()->addHours(5)
         ]);

@@ -74,4 +74,9 @@ class User extends Authenticatable implements MustVerifyAccount
     {
         return $this->phone;
     }
+
+    public function developer()
+    {
+        return $this->hasOne(Developper::class);
+    }
 }

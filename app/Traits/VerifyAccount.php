@@ -65,7 +65,7 @@ trait VerifyAccount
     public function codeExpired()
     {
 
-        $code = $this->verification()->orderBy('id', 'desc')->first();
+        $code = $this->verifications()->orderBy('id', 'desc')->first();
 
 
         if (is_null($code)) {

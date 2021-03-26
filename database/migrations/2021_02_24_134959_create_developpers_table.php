@@ -17,13 +17,15 @@ class CreateDeveloppersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('poster')->nullable();
+            $table->string('slug')->nullable()->unique();
             $table->string('backdrop')->nullable();
-            $table->string('bio')->nullable();
+            $table->text('bio')->nullable();
             $table->string('website')->nullable();
             $table->string('email')->nullable()->unique();
             $table->string('phone')->nullable()->unique();
+            $table->foreignId('country_id')->nullable()->constrained();
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->dateTime("banned_at")->nullable();
-            $table->foreignId('developper_id')->nullable()->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
