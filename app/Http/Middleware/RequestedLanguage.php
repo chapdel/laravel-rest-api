@@ -19,6 +19,7 @@ class RequestedLanguage
      */
     public function handle(Request $request, Closure $next)
     {
+
         if (auth()->user()) {
             $user = auth()->user();
             App::setLocale($user->config->language->iso_code);
@@ -34,6 +35,8 @@ class RequestedLanguage
                 if (!$val->fails()) {
                     App::setLocale($request->lang);
                 }
+            } else {
+                App::setLocale($request->getPreferredLanguage(["en", 'fr']));
             }
         }
 
