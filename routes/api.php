@@ -6,9 +6,7 @@ use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CountryController;
-use App\Http\Controllers\DevelopperController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,15 +33,6 @@ Route::group(['middleware' => ['auth:sanctum'],], function () {
 
     Route::post('verify', [VerificationController::class, 'verify']);
     Route::post('resend', [VerificationController::class, 'resend']);
-
-    //developers
-    Route::post("developers", [DevelopperController::class, 'store'])->middleware('developer.guest');
-
-    Route::post("developers/{developper:slug}", [DevelopperController::class, 'update'])->middleware('developer');
-
-    Route::post("developers/{developper:slug}/poster", [DevelopperController::class, 'poster'])->middleware('developer');
-
-    Route::delete("developers/{developper:slug}", [DevelopperController::class, 'delete'])->middleware('developer');
 });
 
 // guest
@@ -55,8 +44,5 @@ Route::group(['middleware' => ['guest:sanctum'],], function () {
 });
 
 
-Route::get("categories", [CategoryController::class, 'index']);
 Route::get("countries", [CountryController::class, 'index']);
 Route::get("languages", [LanguageController::class, 'index']);
-Route::get("developers", [DevelopperController::class, 'index']);
-Route::get("developers/{developper:slug}", [DevelopperController::class, 'show']);
