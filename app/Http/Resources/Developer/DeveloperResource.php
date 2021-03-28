@@ -27,7 +27,8 @@ class DeveloperResource extends JsonResource
                     'poster' => $this->poster,
                     'phone' => $this->phone,
                     'email' => $this->email,
-                    'website' => $this->website
+                    'website' => $this->website,
+                    'apps' => $this->apps
                 ];
             else
                 return [
@@ -39,6 +40,7 @@ class DeveloperResource extends JsonResource
                     'phone' => $this->phone,
                     'email' => $this->email,
                     'website' => $this->website,
+                    'apps' => $this->apps
                 ];
         }
 
@@ -52,7 +54,8 @@ class DeveloperResource extends JsonResource
             'phone' => $this->phone,
             'email' => $this->email,
             'website' => $this->website,
-            'country' => $this->country
+            'country' => $this->country,
+            'apps' => $this->apps
         ];
     }
 }

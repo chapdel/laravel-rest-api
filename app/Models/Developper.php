@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Antonrom\ModelChangesHistory\Traits\HasChangesHistory;
 use App\Traits\Translatable;
 use Cog\Laravel\Ban\Traits\Bannable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,8 +18,10 @@ class Developper extends Model
     use SoftDeletes;
     use Bannable;
     use Notifiable;
+    use HasChangesHistory;
 
     protected $guarded = ['id'];
+    protected $with = ['apps'];
     protected $hidden = ['id', 'country_id', 'user_id', 'deleted_at', 'banned_at'];
 
     public function apps()

@@ -18,7 +18,16 @@ class DevelopperController extends Controller
      */
     public function index()
     {
-        return response()->json(new DeveloperResourceCollection(Developper::all()));
+        $r = Developper::paginate();
+
+
+        $r = [
+            "total" => $r->total(),
+            "page" => $r->currentPage(),
+            "last" => $r->lastPage(),
+            "result" => new DeveloperResourceCollection($r->items()),
+        ];
+        return response()->json($r);
     }
 
     /**
