@@ -18,7 +18,6 @@ class User extends Authenticatable implements MustVerifyAccount
     use HasApiTokens;
     use Bannable;
     use VerifyAccount;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -57,11 +56,6 @@ class User extends Authenticatable implements MustVerifyAccount
     public function shouldApplyBannedAtScope()
     {
         return true;
-    }
-
-    public function verifications()
-    {
-        return $this->hasMany(UserVerification::class);
     }
 
     /**

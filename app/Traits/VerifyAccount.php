@@ -78,4 +78,9 @@ trait VerifyAccount
             }
         }
     }
+
+    public function verifications()
+    {
+        return $this->morphMany(Verification::class, 'verifiable');
+    }
 }

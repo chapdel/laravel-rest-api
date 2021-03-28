@@ -31,4 +31,6 @@ interface MustVerifyAccount
      * @return string
      */
     public function getAccountForVerification();
+
+    public function verifications();
 }

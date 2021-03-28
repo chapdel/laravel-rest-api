@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserVerificationsTable extends Migration
+class CreateVerificationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateUserVerificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_verifications', function (Blueprint $table) {
+        Schema::create('verifications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->nullable();
+            $table->morphs("veriable");
             $table->string('code')->nullable();
             $table->dateTime('expire_in')->nullable();
             $table->timestamps();
@@ -30,6 +30,6 @@ class CreateUserVerificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_verifications');
+        Schema::dropIfExists('verifications');
     }
 }
