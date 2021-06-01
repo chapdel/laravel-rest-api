@@ -1,0 +1,6 @@
+{
+  "i18n-ally.localesPaths": [
+    "resources/lang",
+    "database/seeders/data/locales"
+  ]
+}

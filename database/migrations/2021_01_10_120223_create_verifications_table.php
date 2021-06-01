@@ -15,7 +15,7 @@ class CreateVerificationsTable extends Migration
     {
         Schema::create('verifications', function (Blueprint $table) {
             $table->id();
-            $table->morphs("veriable");
+            $table->morphs("verifiable");
             $table->string('code')->nullable();
             $table->dateTime('expire_in')->nullable();
             $table->timestamps();

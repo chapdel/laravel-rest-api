@@ -50,7 +50,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'country' => ['required', 'exists:countries,iso_code'],
+            'country' => ['nullable', 'exists:countries,iso_code'],
             'email' => [Rule::requiredIf(!isset($data['phone'])), 'email', 'max:255', 'unique:users', new UnBanned('users')],
             'phone' => [Rule::requiredIf(!isset($data['email'])), 'phone:CM,AUTO', 'unique:users', new UnBanned('users')],
             'password' => ['required', 'string', 'min:8'],
@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'email' => isset($data['email']) ? $data['email'] : null,
             'phone' =>  isset($data['phone']) ? $data['phone'] : null,
             'password' => Hash::make($data['password']),
-            'country_id' => Country::whereIsoCode($data['country'])->first()->id
+            'country_id' => isset($data['country']) ? Country::whereIsoCode($data['country'])->first()->id : null
         ]);
 
         return $user;

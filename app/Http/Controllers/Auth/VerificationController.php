@@ -52,24 +52,24 @@ class VerificationController extends Controller
 
         $user = auth()->user();
 
-        $valid = UserVerification::whereCode($request->code)->whereUserId($user->id)->first();
+        $valid = $user->verifications()->whereCode($request->code)->first();
 
 
         if ($user->hasVerifiedAccount()) {
             return response()->json([
-                'status' => trans('verification.already_verified'),
+                'status' => trans('verifications.already_verified'),
             ], 400);
         }
 
         if (!$valid) {
             throw ValidationException::withMessages([
-                'code' => [trans('verification.invalid')],
+                'code' => [trans('verifications.invalid')],
             ]);
         }
 
         if ($valid->expire_in < now()) {
             throw ValidationException::withMessages([
-                'code' => [trans('verification.user')],
+                'code' => [trans('verifications.user')],
             ]);
         }
 
@@ -78,7 +78,7 @@ class VerificationController extends Controller
         event(new Verified($user));
 
         return response()->json([
-            'status' => trans('verification.verified'),
+            'status' => trans('verifications.verified'),
         ]);
     }
 
@@ -95,18 +95,18 @@ class VerificationController extends Controller
         if (is_null($user)) {
             if (is_null($user->email) && !is_null($user->phone)) {
                 throw ValidationException::withMessages([
-                    'email' => [trans('verification.user')],
+                    'email' => [trans('verifications.user')],
                 ]);
             } else if (!is_null($user->email) && is_null($user->phone)) {
                 throw ValidationException::withMessages([
-                    'phone' => [trans('verification.user')],
+                    'phone' => [trans('verifications.user')],
                 ]);
             }
         }
 
         if ($user->hasVerifiedAccount()) {
             throw ValidationException::withMessages([
-                'email' => [trans('verification.already_verified')],
+                'email' => [trans('verifications.already_verified')],
             ]);
         }
 
@@ -118,6 +118,6 @@ class VerificationController extends Controller
             $user->sendVerificationNotification($code);
         }
 
-        return response()->json(trans('verification.sent'));
+        return response()->json(trans('verifications.send'));
     }
 }

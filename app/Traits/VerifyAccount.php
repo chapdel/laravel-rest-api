@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Models\Verification;
 use App\Notifications\VerifyAccountNotification;
 use Carbon\Carbon;
 
