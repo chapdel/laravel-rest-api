@@ -32,5 +32,10 @@ return [
     'nexmo' => [
         'sms_from' => '237655728267',
     ],
+    'facebook' => [
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => env('APP_URL') . '/sauth/facebook/callback',
+    ],
 
 ];
